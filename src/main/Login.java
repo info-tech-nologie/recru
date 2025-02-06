@@ -2,11 +2,20 @@
 package main;
 
 
+import java.awt.Color;
+import javax.swing.*;
+import java.sql.*;
+
+
 public class Login extends javax.swing.JFrame {
 
-  
+      Connection conn=null;
+      ResultSet rs = null ;
+      PreparedStatement ps = null;
     public Login() {
         initComponents();
+        conn = DatabaseConnection.Conexion();
+
     }
 
  
@@ -31,7 +40,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -103,6 +111,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("se connecter ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Je n'ai pas de compte");
 
@@ -182,6 +195,11 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public Login(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+ 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         SignUp SignUpFrame = new SignUp();
@@ -190,6 +208,65 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setLocationRelativeTo(null); 
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+        private boolean authenticateUser(String email, String password) {
+//        String url = "jdbc:mysql://localhost:3306/candidats";
+//        String user = "root";
+//        String pass = "";
+//        try (Connection con = DriverManager.getConnection(url, user, pass)) {
+//            
+//            String sql = "SELECT * FROM utilisateurs WHERE email=? AND mot_de_passe=?";
+//            PreparedStatement pst = con.prepareStatement(sql);
+//            pst.setString(1, email);
+//            pst.setString(2, password);
+//            ResultSet rs = pst.executeQuery();
+//            return rs.next();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Erreur lors de l'authentification"+rs+, "Erreur", JOptionPane.ERROR_MESSAGE);
+//            return false;
+//        }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String email = jTextField1.getText();
+        String password = new String(jPasswordField1.getPassword());
+//
+//        if (authenticateUser(email, password)) {
+//            JOptionPane.showMessageDialog(this, "Connexion réussie!");
+//            new Home().setVisible(true);
+//            this.dispose(); // Ferme la fenêtre de login
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Nom d'utilisateur ou mot de passe incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
+//        }
+        String requete ="SELECT * FROM utilisateurs WHERE email=? AND mot_de_passe=?";
+        try{
+            
+            ps = conn.prepareStatement(requete);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+        if(rs.next()){
+        
+          JOptionPane.showMessageDialog(this, "Connexion réussie!");
+          this.dispose();
+          new Home().setVisible(true);
+                        
+        }   else {
+         JOptionPane.showMessageDialog(this, "Nom d'utilisateur ou mot de passe incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
+           }
+            
+        }catch(Exception e){
+            System.out.println("--> Exception : " + e) ;
+            JOptionPane.showMessageDialog(this, "Nom d'utilisateur ou mot de passe incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
+           
+        }
+    
+        
+
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+           
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
