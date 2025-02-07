@@ -147,7 +147,7 @@ public class Candidatures extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
-        Deplace();
+        
 
     }//GEN-LAST:event_TableMouseClicked
 
@@ -156,39 +156,11 @@ public class Candidatures extends javax.swing.JFrame {
     }//GEN-LAST:event_TableMouseEntered
 
     private void TableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseReleased
-        btnsupprimer.setEnabled(true);
-        modifierbtn.setEnabled(true);
-        btnconrat.setEnabled(true);
-        //        btninscri.setEnabled(true);
-        ImageIcon img202 = new ImageIcon(getClass().getResource("file_image_1.png"));
-        image.setIcon(img202);
-        Deplace();
-        ImageIcon img = new ImageIcon(getClass().getResource("txt2.png"));
-        txtbachground.setIcon(img);
-        txtrechercher.setText("Taper Cin Candidat");
-        ImageIcon img2 = new ImageIcon(getClass().getResource("txt2.png"));
-        txtbackground1.setIcon(img2);
-        txtrechercher1.setText("Taper Nom Candidat");
-        ImageIcon img01 = new ImageIcon(getClass().getResource("etat0.png"));
-        cconduite.setIcon(img01);
-        ImageIcon img0 = new ImageIcon(getClass().getResource("etat0.png"));
-        ccode.setIcon(img0);
-        ImageIcon img02 = new ImageIcon(getClass().getResource("etat0.png"));
-        nncontart.setIcon(img02);
-        nncontrat();
-        contratconduite();
-        contratcode();
+    
     }//GEN-LAST:event_TableMouseReleased
 
     private void TableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TableKeyReleased
-        if((evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
-            ImageIcon img202 = new ImageIcon(getClass().getResource("file_image_1.png"));
-            image.setIcon(img202);
-            Deplace();
-            nncontrat();
-            contratconduite();
-            contratcode();
-        }
+     
     }//GEN-LAST:event_TableKeyReleased
 public void Affichage() {
         try {
