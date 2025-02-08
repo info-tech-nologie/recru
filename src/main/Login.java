@@ -2,7 +2,7 @@
 package main;
 
 
-import java.awt.Color;
+//import java.awt.Color;
 import javax.swing.*;
 import java.sql.*;
 
@@ -232,24 +232,7 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setLocationRelativeTo(null); 
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-        private boolean authenticateUser(String email, String password) {
-//        String url = "jdbc:mysql://localhost:3306/candidats";
-//        String user = "root";
-//        String pass = "";
-//        try (Connection con = DriverManager.getConnection(url, user, pass)) {
-//            
-//            String sql = "SELECT * FROM utilisateurs WHERE email=? AND mot_de_passe=?";
-//            PreparedStatement pst = con.prepareStatement(sql);
-//            pst.setString(1, email);
-//            pst.setString(2, password);
-//            ResultSet rs = pst.executeQuery();
-//            return rs.next();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//            JOptionPane.showMessageDialog(this, "Erreur lors de l'authentification"+rs+, "Erreur", JOptionPane.ERROR_MESSAGE);
-//            return false;
-//        }
-    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String email = jTextField1.getText();
         String password = new String(jPasswordField1.getPassword());

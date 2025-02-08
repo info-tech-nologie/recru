@@ -4,10 +4,17 @@
  * and open the template in the editor.
  */
 package main;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.rendering.PDFRenderer;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 /**
  *
- * @author proxc
+ * @author Med ali
  */
 public class Postes extends javax.swing.JFrame {
 
@@ -16,7 +23,7 @@ public class Postes extends javax.swing.JFrame {
      */
     public Postes() {
         initComponents();
-    }
+      //  renderPDFImage();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,6 +84,38 @@ public class Postes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+//      private void afficherPDF() {
+//  PDDocument document = null;
+//try {
+//    File file = new File("C:\\Users\\MeD.aLi\\Desktop\\recru\\pdf\\resume.pdf");
+//    document = PDDocument.load(file);
+//
+//    PDFRenderer renderer = new PDFRenderer(document);
+//    BufferedImage image = renderer.renderImage(0);
+//    
+//    JLabel label = new JLabel(new ImageIcon(image));
+//    JFrame frame = new JFrame("Aperçu PDF");
+//    frame.getContentPane().add(label);
+//    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    frame.pack();
+//    frame.setVisible(true);
+//
+//} catch (IOException e) {
+//    e.printStackTrace();
+//    JOptionPane.showMessageDialog(null, "Erreur lors du chargement du fichier PDF : " + e.getMessage());
+//} finally {
+//    if (document != null) {
+//        try {
+//            document.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
+//
+//}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -107,6 +146,8 @@ public class Postes extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -114,6 +155,8 @@ public class Postes extends javax.swing.JFrame {
                 new Postes().setVisible(true);
             }
         });
+          // Charger et afficher le PDF après l'initialisation de l'interface
+  //new Postes().afficherPDF();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

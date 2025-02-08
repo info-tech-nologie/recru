@@ -4,10 +4,16 @@
  * and open the template in the editor.
  */
 package main;
-
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.rendering.PDFRenderer;
+//
+//import javax.swing.*;
+//import java.awt.*;
+//import java.awt.image.BufferedImage;
+//import java.io.File;
 /**
  *
- * @author proxc
+ * @author Med ali
  */
 public class Entretiens extends javax.swing.JFrame {
 
@@ -115,6 +121,30 @@ public class Entretiens extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+//                try {
+//            // Charger le fichier PDF
+//            File file = new File("C:\\Users\\MeD.aLi\\Desktop\\recru\\pdf\\resume.pdf");
+//            PDDocument document = PDDocument.load(file);
+// 
+//            // Créer un renderer pour rendre la première page
+//            PDFRenderer renderer = new PDFRenderer(document);
+//
+//            // Rendu de la première page en image
+//            BufferedImage image = renderer.renderImage(0);
+//            document.close();
+//
+//            // Affichage avec Swing
+//            JLabel label = new JLabel(new ImageIcon(image));
+//            JFrame frame = new JFrame("Aperçu PDF");
+//            frame.getContentPane().add(label);
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            frame.pack();
+//            frame.setVisible(true);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage());
+//        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
